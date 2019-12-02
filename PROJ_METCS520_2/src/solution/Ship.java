@@ -51,8 +51,7 @@ public class Ship implements IShip {
 	public List<IContainer> offload() {
 		List<IContainer> dockyardContainers = new LinkedList<IContainer>();
 		for(IContainer container : containers) {
-			dockyardContainers.add(new Container(container.id(), container.destinationCity()));
-			
+			dockyardContainers.add(new Container(container));	
 		}
 		
 		removeContainers();
@@ -71,7 +70,6 @@ public class Ship implements IShip {
 	@Override
 	public void printDetails() {
 		System.out.println("Ship " + getRegistration() + " has " + containerCount() + " containers.");
-
 	}
 
 }

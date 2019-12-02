@@ -69,7 +69,7 @@ public class Truck implements ITruck {
 			return null;
 		}
 		else {
-			IContainer offloadedContainer = new Container(this.container.id(), this.container.destinationCity());
+			IContainer offloadedContainer = new Container(this.container);
 			this.container = null;
 			
 			return offloadedContainer;
@@ -89,10 +89,10 @@ public class Truck implements ITruck {
 	@Override
 	public void printDetails() {
 		if(this.container != null) {
-			System.out.println("Truck " + registration() + "is headed to " + destinationCity() + " with container " + this.container.id());
+			System.out.println("Truck " + registration() + " is headed to " + destinationCity() + " with container " + this.container.id());
 		}
 		else {
-			System.out.println("Truck " + registration() + "is headed to " + destinationCity() + " with no container");
+			System.out.println("Truck " + registration() + " is headed to " + destinationCity() + " with no container");
 		}
 
 	}

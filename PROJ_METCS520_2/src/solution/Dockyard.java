@@ -81,7 +81,7 @@ public class Dockyard implements IDockyard {
 		System.out.println("The dockyard contains " + containerCount() + " containers.");
 		if(this.containersByCity.size() > 0) {
 			for(String city : this.containersByCity.keySet()) {
-				System.out.println("\t" + city +  ": " + containerCount(city));
+				System.out.printf("\t %6s: %d\n", city, containerCount(city));
 			}
 		}
 	}

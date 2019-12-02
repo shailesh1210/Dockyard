@@ -112,7 +112,7 @@ public abstract class ShippingProcessorBase {
 				
 			} else if (eventType.equalsIgnoreCase("TRUCK")) {
 
-				System.out.println("\nA new truck has arrived. Processing...");
+				System.out.println("\nA new truck has arrived. Processing...\n");
 
 				processTruck(st.nextToken().trim(), st.nextToken().trim());
 			

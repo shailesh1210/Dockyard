@@ -15,6 +15,11 @@ public class Container implements IContainer {
 		this.id = id;
 		this.destinationCity = city;
 	}
+	
+	public Container(IContainer container) {
+		this.id = container.id();
+		this.destinationCity = container.destinationCity();
+	}
 
 	@Override
 	public String id() {
