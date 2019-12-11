@@ -3,23 +3,50 @@ package solution;
 import shipping.IContainer;
 import shipping.ITruck;
 
+/**
+ * @brief This class represents a truck carrying a container that is headed
+ * to its destination city. Each Truck object has a unique registration, 
+ * a destination city it heads to and one container.
+ * @author shailesh
+ *
+ */
 public class Truck implements ITruck {
 	private String registration;
 	private String destinationCity;
 	IContainer container;
 	
+	/**
+	 * @brief A default class constructor that sets registration,
+	 * destinationCity and container to null
+	 */
 	public Truck() {
-		this.registration = null;
-		this.destinationCity = null;
+		setRegistration(null);
+		setDestinationCity(null);
+		
 		this.container = null;
 	}
 	
+	/**
+	 * @brief A class constructor with two parameters. Sets registration 
+	 * and destinationCity to id and city respectively. Sets container to null
+	 * @param id Truck's unique registration number
+	 * @param city Truck's destination city
+	 */
 	public Truck(String id, String city) {
-		this.registration = id;
-		this.destinationCity = city;
+		setRegistration(id);
+		setDestinationCity(city);
+		
 		this.container = null;
 	}
 	
+	/**
+	 * @brief A class constructor with two parameters. Sets registration 
+	 * and destinationCity to id and city respectively. Adds container to
+	 * the truck
+	 * @param id Truck's unique registration number
+	 * @param city Truck's destination city
+	 * @param container IContainer object
+	 */
 	public Truck(String id, String city, IContainer container) {
 		this.registration = id;
 		this.destinationCity = city;
@@ -27,24 +54,46 @@ public class Truck implements ITruck {
 		
 	}
 
+	
+	/**
+	 * @brief Return Truck's registration number
+	 * @return registration
+	 */
 	@Override
 	public String registration() {
 		return this.registration;
 	}
 
+	/**
+	 * @brief Returns Truck's destination city
+	 * @return destinationCity
+	 */
 	@Override
 	public String destinationCity() {
 		return this.destinationCity;
 	}
 	
+	/**
+	 * @brief Sets Truck's registration
+	 * @param id Truck's id defined by the user 
+	 */
 	public void setRegistration(String id) {
 		this.registration = id;
 	}
 	
+	/**
+	 * @brief Sets Truck's destination city
+	 * @param city Truck's destination city defined by the user
+	 */
 	public void setDestinationCity(String city) {
 		this.destinationCity = city;
 	}
 
+	/**
+	 * @brief Add container to the truck if it is empty.
+	 * @param container IContainer object
+	 * @return true if container is added to the truck successfully, false if otherwise
+	 */
 	@Override
 	public boolean addContainer(IContainer container) {
 		
@@ -63,6 +112,10 @@ public class Truck implements ITruck {
 		}
 	}
 
+	/**
+	 * @brief Removes and return container from the truck
+	 * @return container object if truck is not empty, null if otherwise
+	 */
 	@Override
 	public IContainer offloadContainer() {
 		if(!hasContainer()) {
@@ -76,6 +129,10 @@ public class Truck implements ITruck {
 		}
 	}
 
+	/**
+	 * @brief Checks if truck has a container
+	 * @return true if truck is not empty, false if otherwise
+	 */
 	@Override
 	public boolean hasContainer() {
 		if(this.container != null) {
@@ -86,6 +143,10 @@ public class Truck implements ITruck {
 		}
 	}
 
+	/**
+	 * @brief Displays truck details - registration, destination city and container id 
+	 * if truck is not empty.
+	 */
 	@Override
 	public void printDetails() {
 		if(this.container != null) {
